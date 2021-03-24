@@ -14,9 +14,9 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'author', 'views', 'create_date', 'update_date', 'is_top')
+    list_display = ('id', 'title', 'author', 'view', 'create_date', 'update_date', 'is_top')
     list_display_links = ('title',)
-    exclude = ('views',)
+    exclude = ('view',)
     list_editable = ('is_top',)
 
 
