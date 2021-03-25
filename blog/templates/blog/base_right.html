@@ -1,29 +1,40 @@
+{% load blog_tags static %}
 <div class="card">
   <div class="card-header">
     <strong>文章分类</strong>
   </div>
-  <div class="card-body">
-
-  </div>
+  <ul class="list-group list-group-flush">
+    {% get_category_list as category_list %}
+    {% for category in category_list %}
+      <li class="list-group-item">{{ category.name }}</li>
+    {% endfor %}
+  </ul>
 </div>
 
 <div class="card">
   <div class="card-header">
     <strong>标签云</strong>
   </div>
-
   <div class="card-body">
-
+    {% get_tag_list as tag_list %}
+    {% for tag in tag_list %}
+      <div class="float-left">
+        {{ tag.name }}
+      </div>
+    {% endfor %}
   </div>
-
 </div>
 
 <div class="card">
   <div class="card-header">
     <strong>友情链接</strong>
   </div>
-
   <div class="card-body">
-
+    {% get_friend_link_list as friend_link_list %}
+    {% for friend_link in friend_link_list %}
+      <div class="float-left w-50 text-center">
+        <a href="">{{ friend_link.name }}</a>
+      </div>
+    {% endfor %}
   </div>
 </div>
